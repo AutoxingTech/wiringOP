@@ -2392,6 +2392,7 @@ int wiringPiSetup (void)
 
 #ifdef CONFIG_ORANGEPI_2G_IOT
 	/* GPIO */
+  printf("CONFIG_ORANGEPI_2G_IOT\n");
 	gpio = (uint32_t *)mmap(0, BLOCK_SIZE * 3, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_BASE);
 	if ((int32_t)(unsigned long)gpio == -1)
 		return wiringPiFailure(WPI_ALMOST, 
@@ -2406,6 +2407,7 @@ int wiringPiSetup (void)
 
 #if ! (defined CONFIG_ORANGEPI_RK3399 || defined CONFIG_ORANGEPI_4 || defined CONFIG_ORANGEPI_4_LTS || defined CONFIG_ORANGEPI_800 || defined CONFIG_ORANGEPI_R1PLUS)
 
+printf("xxxxxxxfdassadsa\n");
 	/* GPIO */
 #if CONFIG_ORANGEPI_LITE2 || CONFIG_ORANGEPI_3 || CONFIG_ORANGEPI_ZERO2
 	gpio = (uint32_t *)mmap(0, BLOCK_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_BASE);
@@ -2497,7 +2499,7 @@ int wiringPiSetup (void)
 // Map the individual hardware components
 
 //	GPIO:
-
+  printf("xxxx\n");
   gpio = (uint32_t *)mmap(0, BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, GPIO_BASE) ;
   if (gpio == MAP_FAILED)
     return wiringPiFailure (WPI_ALMOST, "wiringPiSetup: mmap (GPIO) failed: %s\n", strerror (errno)) ;
