@@ -14,7 +14,8 @@ void inter(void)
 
 int main(void)
 {
-	wiringPiSetup();
+	int ret = wiringPiSetup();
+	printf("setup ret: %d\n",ret);
 
 	pinMode(5, INPUT);
 
