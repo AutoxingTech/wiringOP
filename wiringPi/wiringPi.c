@@ -2548,6 +2548,10 @@ printf("xxxxxxxfdassadsa\n");
   _wiringPiTimer = timer ;
 #endif
 
+  gpio = (uint32_t *)mmap(0, BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, GPIO_BASE) ;
+  if (gpio == MAP_FAILED)
+    return wiringPiFailure (WPI_ALMOST, "wiringPiSetup: mmap (GPIO) failed: %s\n", strerror (errno)) ;
+
   initialiseEpoch () ;
 
   return 0 ;
