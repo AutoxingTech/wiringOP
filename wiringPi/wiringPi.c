@@ -2412,7 +2412,7 @@ int wiringPiSetup (void)
 
 printf("xxxxxxxfdassadsa\n");
 	/* GPIO */
-#if CONFIG_ORANGEPI_LITE2 || CONFIG_ORANGEPI_3 || CONFIG_ORANGEPI_ZERO2
+#if CONFIG_ORANGEPI_LITE2 || CONFIG_ORANGEPI_3 || CONFIG_ORANGEPI_ZERO2 || CONFIG_ORANGEPI_4_LTS
 	gpio = (uint32_t *)mmap(0, BLOCK_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_BASE);
 #else
 	gpio = (uint32_t *)mmap(0, BLOCK_SIZE * 10, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_BASE);
@@ -2547,10 +2547,6 @@ printf("xxxxxxxfdassadsa\n");
   _wiringPiPads  = pads ;
   _wiringPiTimer = timer ;
 #endif
-
-  gpio = (uint32_t *)mmap(0, BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, GPIO_BASE) ;
-  if (gpio == MAP_FAILED)
-    return wiringPiFailure (WPI_ALMOST, "wiringPiSetup: mmap (GPIO) failed: %s\n", strerror (errno)) ;
 
   initialiseEpoch () ;
 
