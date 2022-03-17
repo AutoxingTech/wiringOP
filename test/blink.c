@@ -14,6 +14,9 @@ void inter(void)
 
 int main(void)
 {
+#ifdef CONFIG_ORANGEPI_4_LTS
+	printf("CONFIG_ORANGEPI_4_LTS");
+#endif
 	int ret = wiringPiSetup();
 	printf("setup ret: %d\n",ret);
 
