@@ -2301,6 +2301,9 @@ void wiringPiVersion (int *major, int *minor)
 
 int wiringPiSetup (void)
 {
+#ifdef CONFIG_ORANGEPI_4_LTS
+  printf("CONFIG_ORANGEPI_4_LTS\n");
+#endif
   int   fd ;
   int   model, rev, mem, maker, overVolted ;
 
@@ -2403,7 +2406,7 @@ int wiringPiSetup (void)
 	if ((int32_t)(unsigned long)OrangePi_gpioC == -1)
 		return wiringPiFailure(WPI_ALMOST, 
 				"wiringPiSetup: mmap (GPIO) failed: %s\n", strerror(errno));
-#else
+#else //CONFIG_ORANGEPI_2G_IOT
 
 #if ! (defined CONFIG_ORANGEPI_RK3399 || defined CONFIG_ORANGEPI_4 || defined CONFIG_ORANGEPI_4_LTS || defined CONFIG_ORANGEPI_800 || defined CONFIG_ORANGEPI_R1PLUS)
 
@@ -2549,7 +2552,6 @@ printf("xxxxxxxfdassadsa\n");
 
   return 0 ;
 }
-
 
 /*
  * wiringPiSetupGpio:
