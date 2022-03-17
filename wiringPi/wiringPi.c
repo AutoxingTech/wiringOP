@@ -1532,6 +1532,7 @@ void pinMode (int pin, int mode)
 void pullUpDnControl (int pin, int pud)
 {
   struct wiringPiNodeStruct *node = wiringPiNodes ;
+  printf("gpio ptr: %p\n",gpio);
 
   setupCheck ("pullUpDnControl") ;
 
@@ -2482,6 +2483,7 @@ int wiringPiSetup (void)
 #endif
 
 #else
+printf("gpio");
 // Set the offsets into the memory interface.
 
   GPIO_PADS 	  = piGpioBase + 0x00100000 ;
